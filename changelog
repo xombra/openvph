@@ -1,4 +1,58 @@
-commit 5e2c57e75eb7bc19632c033374b1af35f78aba8a (HEAD, origin/master, origin/HEAD, master)
+commit 4d2a8cc2e68bf49fac2b62fb373ca8c6fcbcc341 (HEAD, origin/master, origin/HEAD, master)
+Author: sinfallas <sinfallas@gmail.com>
+Date:   Wed Aug 13 18:56:19 2014 -0430
+
+    * se actualizan los archivos readme y authors
+
+commit bfab64434cecd93343e669f3e157b9e8d5ceda08
+Merge: 899eb42 0eec85a
+Author: Jesus Palencia <sinfallas@users.noreply.github.com>
+Date:   Wed Aug 13 18:52:30 2014 -0430
+
+    Merge pull request #1 from Vaslibre/master
+    
+    Merge
+
+commit 0eec85a8d18f9cdee9387f73173a4e34dba16d7c
+Merge: 4db6037 e39d015
+Author: ángel <bullgram@gmail.com>
+Date:   Wed Aug 13 18:42:19 2014 -0430
+
+    Merge pull request #1 from spinner-dev/master
+    
+    Se actualiza el código.
+
+commit e39d01517dfd9e6dbc422eb228c156f685ac8a97
+Author: abr4xas <me@abr4xas.org>
+Date:   Wed Aug 13 16:41:58 2014 -0430
+
+    actualizado
+
+commit 1433180bae32a90710a342dabc9c3443b0805d57
+Author: abr4xas <me@abr4xas.org>
+Date:   Wed Aug 13 16:37:07 2014 -0430
+
+    Actualizado
+
+commit 899eb4264b3b1b71f02959f1391fe2c64505307b
+Author: Jesus Palencia <sinfallas@users.noreply.github.com>
+Date:   Tue Jun 3 11:47:39 2014 -0430
+
+    Create COPYING
+
+commit 3b8d1861e348e132fdced47e4159dd21bd528a00
+Author: Jesus Palencia <sinfallas@users.noreply.github.com>
+Date:   Tue Jun 3 11:45:23 2014 -0430
+
+    Create AUTHORS
+
+commit b0994170fcd52dec84bd986d5b4bdc2f3a727903
+Author: sinfallas <sinfallas@gmail.com>
+Date:   Thu May 15 14:09:27 2014 -0430
+
+    * se crea changelog
+
+commit 5e2c57e75eb7bc19632c033374b1af35f78aba8a
 Author: sinfallas <sinfallas@gmail.com>
 Date:   Tue May 6 21:24:34 2014 -0430
 
