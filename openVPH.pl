@@ -2,12 +2,9 @@
 
 use POE::Component::IRC;
 use POE::Component::IRC::State;
-use WWW::Curl::Simple;
 use POE::Kernel;
 use Data::Dumper;
 use POE::Session;
-
-my $curl = WWW::Curl::Simple->new();
 
 use strict;
 
@@ -79,8 +76,6 @@ sub comandos
         $nick= $_[0];
         my $canal = $_[1];
         my $msg = $_[2];
-
-       # my $res = $curl->get('http://www.google.com/');
 
        # $salida ="JEFE lo llaman... o esta ocupado para atender triviliadidades de $nick :D" if ( $msg =~ /xombra/ or $msg =~ /jjedi/ or $msg =~ /Xombra/ );
 
