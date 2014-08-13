@@ -2,14 +2,9 @@
 
 use POE::Component::IRC;
 use POE::Component::IRC::State;
-use Net::Identica;
-use Data::Dumper::Names;
-use WWW::Curl::Simple;
 use POE::Kernel;
 use Data::Dumper;
 use POE::Session;
-
-#my $curl = WWW::Curl::Simple->new();
 
 use strict;
 
@@ -24,11 +19,6 @@ my ($channel)   = ("#vaslibre");
 #my ($channel)   = ("#prueba");
 
 my ($todos);
-
-# Identi.ca
-my $identica;
-$identica = Net::Identica->new(username => "openvph", password => "zxcasdqwe123");
-
 
 my ($irc) = POE::Component::IRC->spawn
         (
@@ -86,29 +76,6 @@ sub comandos
         $nick= $_[0];
         my $canal = $_[1];
         my $msg = $_[2];
-        if ($msg =~ /^!dent (.*)/)
-                {
-                my $mensaje = "$nick: $1";
-                $salida = "$nick: si no hubiese tanto jodedorcito en el canal, este bot haría un DENT con lo que acabas de poner... por lo pronto solo obedece a Jjedi y a Xombra";
-                if ( $nick =~ /^\[jjedi\]$/ || $nick =~ /^xombra$/)
-                        {
-                        $identica->update($mensaje);
-                        $salida = "--Nueva entrada en http://identi.ca/openvph [ $mensaje ]";
-                        }
-                return $salida;
-                }
-        if ($msg =~ /^!escuchando$/ || $msg =~ /^!sonando$/)
-                {
-      #          my $res = $curl->get('http://radiognu.org/icecast.php');
-      #          my $salida = $res->decoded_content;
-
-                 $salida ="$nick: Po DIOS, tu eres estupido de nacimiento o has practicado en tu malograda vida?";
-
-                return $salida;
-                }
-
-       # my $res = $curl->get('http://www.google.com/');
-       #$salida = "--Nueva entrada en el Identi.ca de RadioGNU: ( por: $nick ) [[[ $1 ]]]";
 
        # $salida ="JEFE lo llaman... o esta ocupado para atender triviliadidades de $nick :D" if ( $msg =~ /xombra/ or $msg =~ /jjedi/ or $msg =~ /Xombra/ );
 
