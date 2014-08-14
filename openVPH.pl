@@ -75,22 +75,14 @@ sub comandos
 
         
         $salida ="$nick: Crees que porque hables en codigo nativo homosexual no te entiendo?" if ( $msg =~ /mmg/ );
-        $salida ="mas lindo $nick asi me gusta que hagan cosas por AWVEN sino se van partida de flojos" if ( $msg =~ /awven/ );
+        $salida ="Más lindo $nick asi me gusta, que hagan cosas por AWVEN sino se van partida de flojos" if ( $msg =~ /awven/ );
         $salida ="$nick: no grites por favor, me gusta que hablen de AWVEN, pero gritar es de ignorantes" if ( $msg =~ /AWVEN/ );
         $salida =extraer_frase($nick, $canal, $msg, "ubuntu", quien()) 
         if ( $msg =~ /ubuntu/ or $msg =~ /UBUNTU/ or /software libre/ or $msg =~ /SL/ or $msg =~ /sl/);
-        $salida ="$nick: si vas hablar de windows te has equivocado de canal - fuchi fuchi vete!!!" if ( $msg =~ /windows/ );
-        $salida ="$nick: preguntale a comprate un reloj, o dile a tu NOVIO que te de el que usa" if ( $msg =~ /hora/ );
+        $salida ="$nick: si vas hablar de windows te has equivocado de canal... Fuchi fuchi vete!!!" if ( $msg =~ /windows/ );
+        $salida ="$nick: preguntale a $nick si puede comprate un reloj..." if ( $msg =~ /hora/ );
         $salida = extraer_frase($nick, $canal, $msg, "genericas", quien() ) if ( $msg =~ /bot/ or $msg =~ /troll/ );
         $salida = extraer_frase($nick, $canal, $msg, "groserias", quien() ) if ( $msg =~ /guevo.|mamaguevo.|maric.|paju.|pendej.|mariquit.|weon"/);
-        $salida ="Solo me da la gana de ejecutar !comandos | !quota [mensaje] | !dedicatoria [nickname]" if ( $msg =~ /C!comandos$/ );
-        $salida = extraer_frase ($1, $canal, 3, "nicks", quien() ) if ($msg =~ /^!dedicatoria (.*)/);
-        $salida = dedicatoria ($1, $canal) if ($msg =~ /^!dedicatoria (.*)/);
-        if ($msg =~ /^(!quota)(.*)/)
-                {
-                $salida= quotas ($nick, $2);
-                }
-        return $salida;
         $irc->yield( kick => $canal => $nick => 'porque le gustan asi' ) if ( $msg =~ /[8B]={2,}D/);
         $irc->yield( privmsg => $canal => $salida) if ($salida);
         }
