@@ -59,7 +59,7 @@ sub irc_public
 
 sub irc_msg
         {
-        my $nick = (split /!/, $_[ARG0])[0];$
+        my $nick = (split /!/, $_[ARG0])[0];
         my $msg = $_[ARG2];
     #    $irc->yield( privmsg => $channel => "$msg" ) if ( $nick =~ /$owner/i);;
         }
