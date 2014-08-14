@@ -13,13 +13,8 @@ my ($nickname)  = 'openvph';
 my ($ircname)   = 'Soy un BOT hecho en Perl y soy mejor que ovejorock que usa Python';
 my ($ircserver) = 'irc.freenode.net';
 my ($port)      = 6667;
-my ($channel)   = ("#vaslibre");
-
-# se descomenta esta linea para que entre solo en un canal de pruebas
-#my ($channel)   = ("#prueba");
-
+my ($channel)   = ("#prueba");
 my ($todos);
-
 my ($irc) = POE::Component::IRC->spawn
         (
         nick => $nickname,
@@ -66,7 +61,6 @@ sub irc_msg
         {
         my $nick = (split /!/, $_[ARG0])[0];
         my $msg = $_[ARG2];
-    #    $irc->yield( privmsg => $channel => "$msg" ) if ( $nick =~ /$owner/i);;
         }
 # textos que el bot reconoce como comandos
 sub comandos
@@ -81,30 +75,14 @@ sub comandos
 
         
         $salida ="$nick: Crees que porque hables en codigo nativo homosexual no te entiendo?" if ( $msg =~ /mmg/ );
-
-        $salida ="mas lindo $nick asi me gusta que hagan cosas por AWVEN sino se van partida de flojos" if ( $msg =~ /awven/ );
-	$salida ="$nick: no grites por favor, me gusta que hablen de AWVEN, pero gritar es de ignorantes" if ( $msg =~ /AWVEN/ );
-
-	$salida =extraer_frase($nick, $canal, $msg, "ubuntu", quien()) if ( $msg =~ /ubuntu/ or $msg =~ /UBUNTU/ or /software libre/ or $msg =~ /SL/ or $msg =~ /sl/);
-
-        $salida ="$nick: si vas hablar de windows te has equivocado de canal - fuchi fuchi vete!!!" if ( $msg =~ /windows/ );
-
-        $salida ="$nick: preguntale a comprate un reloj, o dile a tu NOVIO que te de el que usa" if ( $msg =~ /hora/ );
-
+        $salida ="Más lindo $nick asi me gusta, que hagan cosas por AWVEN sino se van partida de flojos" if ( $msg =~ /awven/ );
+        $salida ="$nick: no grites por favor, me gusta que hablen de AWVEN, pero gritar es de ignorantes" if ( $msg =~ /AWVEN/ );
+        $salida =extraer_frase($nick, $canal, $msg, "ubuntu", quien()) 
+        if ( $msg =~ /ubuntu/ or $msg =~ /UBUNTU/ or /software libre/ or $msg =~ /SL/ or $msg =~ /sl/);
+        $salida ="$nick: si vas hablar de windows te has equivocado de canal... Fuchi fuchi vete!!!" if ( $msg =~ /windows/ );
+        $salida ="$nick: preguntale a $nick si puede comprate un reloj..." if ( $msg =~ /hora/ );
         $salida = extraer_frase($nick, $canal, $msg, "genericas", quien() ) if ( $msg =~ /bot/ or $msg =~ /troll/ );
-
         $salida = extraer_frase($nick, $canal, $msg, "groserias", quien() ) if ( $msg =~ /guevo.|mamaguevo.|maric.|paju.|pendej.|mariquit.|weon"/);
-
-        $salida ="Solo me da la gana de ejecutar !comandos | !quota [mensaje] | !dedicatoria [nickname]" if ( $msg =~ /C!comandos$/ );
-
-        #$salida = extraer_frase ($1, $canal, 3, "nicks", quien() ) if ($msg =~ /^!dedicatoria (.*)/);
-
-        $salida = dedicatoria ($1, $canal) if ($msg =~ /^!dedicatoria (.*)/);
-        if ($msg =~ /^(!quota)(.*)/)
-                {
-                $salida= quotas ($nick, $2);
-                }
-        return $salida;
         $irc->yield( kick => $canal => $nick => 'porque le gustan asi' ) if ( $msg =~ /[8B]={2,}D/);
         $irc->yield( privmsg => $canal => $salida) if ($salida);
         }
@@ -138,34 +116,6 @@ sub extraer_frase
         return $salida;
         }
 
-sub dedicatoria
-        {
-        my $dedicadoa=@_[0];
-        chomp ($dedicadoa);
-        my $canal=@_[1];
-        my $salida;
-        my @tuti;
-        if ($dedicadoa =~ /^todos$/)
-                {
-                # eliminado porque mas de un gracioso hacía flood en el canal
-                #@tuti=quienes();
-                #my $s;
-                #foreach (@tuti)
-                #       {
-                #       $s = extraer_frase ($_, $canal, 0, "nicks", quien() );
-                #       $irc->yield( privmsg => $canal => $s);
-                #       }
-                $irc->yield( privmsg => $canal => "Echevetroll mamalo ;) ");
-                }
-        else
-                {
-                $salida = extraer_frase ($dedicadoa, $canal, 0, "nicks", quien() );
-                }
-        return $salida;
-        }
-
-# esto tiene bugs, a veces lista gente que no está en el canal
-# está eliminado para evitar flood, puede servir para acciones como !invitar
 sub quien
         {
         my @everyone;
@@ -287,12 +237,6 @@ sub irc_join
                 {
                 $irc->yield( privmsg => $canal => "tu eres un cabeza de mojon con pelos");
                 }
-        # dedicatoria para miembros específicos
-        #if ($nick !~ /^$nickname$/)
-        #       $respuesta = extraer_frase ($nick, $canal, 0, "join");
-        #       $irc->yield( privmsg => $canal => $respuesta);
-        #       &loguear("===", $respuesta);
-        #       }
         }
 
 sub irc_part
@@ -319,19 +263,4 @@ sub loguear
         open (LOG,">> log.txt") || die ("No puedo escribir el LOG");
         print LOG "$fecha $quien $frase\n";
         close (LOG);
-        }
-
-sub quotas
-        {
-        my $nick = @_[0];
-        my $msg = @_[1];
-        my $respuesta;
-        return if (length($msg) <=20);
-        my $now   = localtime time;
-        open (LOG,">> quotas.txt") || die ("No puedo escribir la QUOTA");
-        $respuesta = "Quota escrita: $now || $nick ||$msg";
-        #$irc->yield( privmsg => $channel => "Quota escrita: $now || $nick ||$msg");
-        print LOG "$now || $nick ||$msg\n";
-        close (LOG);
-        return $respuesta;
         }
