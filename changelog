@@ -1,4 +1,16 @@
-commit 96fdc354f196b1ebfc4ef70cf04d21cf3bce0c28 (HEAD, origin/master, origin/HEAD, master)
+commit 5cfc4a1288e584752b0d863f3010bc92d9d7bd4d (HEAD, origin/master, origin/HEAD, master)
+Author: sinfallas <sinfallas@gmail.com>
+Date:   Sun Sep 7 15:13:49 2014 -0430
+
+    * bugfix
+
+commit d23ee3c9f7871aab8cf9aab89f096c54637550bb
+Author: sinfallas <sinfallas@gmail.com>
+Date:   Sun Sep 7 15:11:55 2014 -0430
+
+    * changelog
+
+commit 96fdc354f196b1ebfc4ef70cf04d21cf3bce0c28
 Merge: 87da2c0 ad075c3
 Author: ángel <bullgram@gmail.com>
 Date:   Thu Aug 14 10:18:00 2014 -0430
