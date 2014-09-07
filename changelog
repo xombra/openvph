@@ -1,4 +1,70 @@
-commit 4d2a8cc2e68bf49fac2b62fb373ca8c6fcbcc341 (HEAD, origin/master, origin/HEAD, master)
+commit 96fdc354f196b1ebfc4ef70cf04d21cf3bce0c28 (HEAD, origin/master, origin/HEAD, master)
+Merge: 87da2c0 ad075c3
+Author: ángel <bullgram@gmail.com>
+Date:   Thu Aug 14 10:18:00 2014 -0430
+
+    Merge pull request #2 from Vaslibre/master
+    
+    Actualización general
+
+commit ad075c3ef2ea24e99aad3e6213615ff5ccc6eaae
+Merge: 0eec85a 8948af3
+Author: ángel <bullgram@gmail.com>
+Date:   Thu Aug 14 10:17:01 2014 -0430
+
+    Merge pull request #2 from spinner-dev/master
+    
+    Actualización general
+
+commit 8948af3b5b88e4dfe2453643c2ed251874417d27
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 10:13:37 2014 -0430
+
+    fix typo
+
+commit 457dff705effe32289cb4e987526353d0240dd7f
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 10:03:57 2014 -0430
+
+    fix typo
+
+commit 1e02f1d4717cc9ef8324cc634a629eb48128478c
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 09:48:58 2014 -0430
+
+    fix typo
+
+commit 4208836647926cd2c252e2690ad6a35cfa1e0d3e
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 09:42:41 2014 -0430
+
+    fix typo
+
+commit a2d8bc75c5019e44f8764bee5343db758dc0192c
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 09:41:25 2014 -0430
+
+    modificado
+
+commit d24fde00a7073ad89983be5607ac20793380d587
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 09:37:11 2014 -0430
+
+    fix typo
+
+commit 3ae09a112856662e57bfa0c1080f6410da55f0d0
+Author: abr4xas <me@abr4xas.org>
+Date:   Thu Aug 14 09:32:23 2014 -0430
+
+    Actualizado
+
+commit 87da2c0671aeff35087eeb7bf315840cf0d9471b
+Author: sinfallas <sinfallas@gmail.com>
+Date:   Wed Aug 13 18:57:06 2014 -0430
+
+    * changelog
+
+commit 4d2a8cc2e68bf49fac2b62fb373ca8c6fcbcc341
 Author: sinfallas <sinfallas@gmail.com>
 Date:   Wed Aug 13 18:56:19 2014 -0430
 
